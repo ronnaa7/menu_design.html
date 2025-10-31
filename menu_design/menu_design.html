@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R.T. - תוכנית תזונה פרימיום לנופר רושו</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap');
+        
+        /* Tailwind configuration for custom colors and font */
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        /* --- NEW FRIENDLY PALETTE (Wellness Vibe) --- */
+                        'primary-bg': '#f8f9fa', /* Very Light Gray/Off-White */
+                        'secondary-bg': '#ffffff', /* Clean White for cards */
+                        'accent-gold': '#a5915d', /* Elegant Soft Bronze/Gold */
+                        'text-dark': '#1f2937', /* Dark Blue-Gray for main text */
+                        'text-muted': '#6b7280', /* Mid-Gray for secondary text */
+                        'soft-accent': '#e5e7eb', /* Light Border/Divider color */
+                    },
+                    fontFamily: {
+                        sans: ['Heebo', 'sans-serif'],
+                    },
+                }
+            }
+        }
+
+        /* Custom styles for luxurious look (Adjusted for light theme) */
+        .gold-emblem {
+            /* Softer shadow for an embossed/printed look on a light background */
+            text-shadow: 0 1px 3px rgba(165, 145, 93, 0.4), 0 0 5px rgba(165, 145, 93, 0.2);
+            letter-spacing: 0.2em;
+        }
+        
+        .meal-list li {
+            padding: 0.5rem 0.75rem;
+            margin-bottom: 0.5rem;
+            border-radius: 0.375rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .meal-list li:hover {
+            background-color: rgba(165, 145, 93, 0.1); /* Subtle bronze background hover */
+            color: #a5915d; /* Text color change on hover to accent */
+        }
+
+        /* Styling for the collapsible icon */
+        .toggle-icon {
+            transition: transform 0.3s ease;
+            line-height: 1;
+        }
+        .rotated {
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body class="bg-primary-bg font-sans text-text-dark min-h-screen p-4 sm:p-8">
+
+    <!-- Main Container -->
+    <div class="max-w-4xl mx-auto shadow-xl rounded-xl overflow-hidden bg-secondary-bg">
+
+        <!-- Header - Branding and Title -->
+        <header class="p-6 sm:p-10 border-b border-soft-accent">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center">
+                
+                <!-- R.T. Logo/Initials - Enhanced Branding -->
+                <h1 class="text-5xl sm:text-6xl font-extrabold gold-emblem text-accent-gold mb-4 sm:mb-0">
+                    R.T.
+                </h1>
+
+                <!-- Document Title -->
+                <div class="text-right">
+                    <p class="text-lg text-text-muted">תוכנית התזונה האישית שלך</p>
+                    <h2 class="text-3xl sm:text-4xl font-black text-text-dark mt-1">
+                        נופר רושו: בדרך אל המטרה
+                    </h2>
+                </div>
+            </div>
+            <p class="mt-6 text-text-muted leading-relaxed border-t border-soft-accent pt-4 text-base">
+                שלום נופר, התוכנית הזו נבנתה במיוחד עבורך, על בסיס האפיון שמילאת. היא מותאמת לאורח החיים העמוס שלך כסטודנטית ומניקוריסטית, למטרות שלך ולאהבה שלך לגיוון. המטרה שלנו היא לא "דיאטה", אלא יצירת הרגלים חכמים ומזינים שתוכלי להתמיד בהם לאורך זמן.
+            </p>
+        </header>
+
+        <!-- Main Content Sections -->
+        <main class="p-6 sm:p-10 space-y-12">
+
+            <!-- Section: Goals and Principles - LUXURIOUS PROGRESS CARD -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+                
+                <!-- Goals/Progress Card -->
+                <section class="bg-primary-bg rounded-lg p-6 shadow-md border border-soft-accent">
+                    <h3 class="flex items-center text-2xl font-bold text-accent-gold border-b-2 border-accent-gold/50 pb-2 mb-4">
+                        <span class="ml-2">&#127919;</span> נתיב אל היעד (Goal Tracker)
+                    </h3>
+                    <div class="space-y-4 text-center">
+                        <p class="text-text-muted text-sm">יעד ראשי: ירידה מבוקרת באחוזי השומן וחיטוב הגוף</p>
+                        
+                        <!-- Progress Path Visualization -->
+                        <div class="flex justify-between items-center relative my-6">
+                            <!-- Start Point -->
+                            <div class="absolute -right-3 top-1/2 -translate-y-1/2 flex flex-col items-center">
+                                <span class="text-4xl text-text-dark">●</span>
+                                <span class="text-xs text-text-muted mt-1">התחלה: 66.5 ק"ג</span>
+                            </div>
+                            
+                            <!-- Path Line -->
+                            <div class="absolute h-0.5 bg-accent-gold w-full top-1/2 transform -translate-y-1/2 opacity-50"></div>
+                            
+                            <!-- End Point -->
+                            <div class="absolute -left-3 top-1/2 -translate-y-1/2 flex flex-col items-center">
+                                <span class="text-4xl text-accent-gold">★</span>
+                                <span class="text-xs text-text-dark mt-1 font-semibold">יעד: 60 ק"ג</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-12 text-center text-lg font-semibold text-text-dark">נופר רושו - אנו יוצאים לדרך!</div>
+                </section>
+
+                <!-- Principles -->
+                <section>
+                    <h3 class="flex items-center text-2xl font-bold text-accent-gold border-b-2 border-accent-gold/50 pb-2 mb-4">
+                        <span class="ml-2">&#128214;</span> עקרונות התוכנית
+                    </h3>
+                    <ul class="list-disc list-inside space-y-3 text-text-dark text-base pr-4">
+                        <li><span class="font-semibold text-accent-gold">יעד קלורי:</span> כ-1,550-1,600 קלוריות ליום.</li>
+                        <li><span class="font-semibold text-accent-gold">דגש חלבון:</span> כ-120 גרם חלבון (חיוני לשמירת שריר ושובע).</li>
+                        <li><span class="font-semibold text-accent-gold">מבנה ארוחות:</span> 3 ארוחות עיקריות + ארוחת ביניים מבוקרת.</li>
+                        <li><span class="font-semibold text-accent-gold">גמישות:</span> 5 אופציות מגוונות ו-5 אופציות מהירות לכל ארוחה.</li>
+                    </ul>
+                </section>
+            </div>
+
+            <!-- Section: The Menu (Detailed) -->
+            <section>
+                <h3 class="flex items-center text-3xl font-black text-text-dark pt-4 pb-2 border-b border-accent-gold/50 mb-8">
+                    <span class="ml-3 text-accent-gold">&#9776;</span> התפריט המגוון שלך
+                </h3>
+                
+                <!-- Helper function for meal structure -->
+                <script>
+                    function toggleOptions(id) {
+                        const element = document.getElementById(id);
+                        const icon = document.querySelector(`#${id}-toggle-icon`);
+
+                        // Use max-height transition for smoother slide-down effect
+                        if (element.classList.contains('hidden')) {
+                            element.classList.remove('hidden');
+                            setTimeout(() => {
+                                element.style.maxHeight = element.scrollHeight + "px";
+                            }, 10);
+                            icon.classList.remove('rotated');
+                            icon.textContent = 'x'; // Change to 'X' for close
+                        } else {
+                            element.style.maxHeight = "0";
+                            icon.classList.add('rotated');
+                            icon.textContent = '+'; // Change to '+' for open
+                            element.addEventListener('transitionend', function handler() {
+                                element.classList.add('hidden');
+                                element.removeEventListener('transitionend', handler);
+                            }, { once: true });
+                        }
+                    }
+                </script>
+
+                <!-- Meal: Breakfast -->
+                <div class="bg-secondary-bg p-4 sm:p-6 rounded-lg mb-6 shadow-md border border-soft-accent">
+                    <h4 class="text-xl sm:text-2xl font-bold text-text-dark flex items-center justify-between cursor-pointer transition duration-300 hover:text-accent-gold" onclick="toggleOptions('breakfast-options')">
+                        <span><span class="text-accent-gold ml-2">&#129369;</span> ארוחת בוקר (כ-350-400 קלוריות)</span>
+                        <span id="breakfast-options-toggle-icon" class="text-3xl text-accent-gold toggle-icon rotated">+</span>
+                    </h4>
+                    <div id="breakfast-options" class="hidden mt-4 pt-4 border-t border-soft-accent space-y-4 overflow-hidden" style="transition: max-height 0.5s ease-out; max-height: 0;">
+                        <div class="bg-primary-bg p-4 rounded-md">
+                            <p class="font-semibold text-accent-gold mb-3">&#128171; 5 אופציות מגוונות:</p>
+                            <ul class="list-none meal-list text-sm sm:text-base text-text-dark pr-0">
+                                <li><span class="text-accent-gold ml-2">-</span> קערת יוגורט יווני: 200 גרם יוגורט יווני 2% + 100 גרם פירות יער + 30 גרם גרנולה איכותית + 10 גרם שקדים פרוסים.</li>
+                                <li><span class="text-accent-gold ml-2">-</span> דייסת "פרו" חמה: 40 גרם שיבולת שועל + 200 מ"ל חלב 1% + חצי סקופ אבקת חלבון + קינמון + תפוח עץ מגורד.</li>
+                                <li><span class="text-accent-gold ml-2">-</span> טוסט אבוקדו וביצים: 2 פרוסות לחם כוסמין/מלא + 2 ביצים קשות (L) + 1/3 אבוקדו בינוני + ירקות.</li>
+                                <li><span class="text-accent-gold ml-2">-</span> חביתת ירק וגבינה: חביתה מ-2 ביצים + כף שמן זית + חופן ירק + 2 פרוסות לחם קל + 100 גרם קוטג' 5%.</li>
+                                <li><span class="text-accent-gold ml-2">-</span> שקשוקה קלה: 2 ביצים + 1/2 פחית עגבניות מרוסקות + ירקות + 30 גרם גבינה בולגרית 5% + פרוסת לחם מלא.</li>
+                            </ul>
+                        </div>
+                        <div class="bg-primary-bg/70 p-4 rounded-md">
+                            <p class="font-semibold text-text-dark mb-3">&#9889; אופציות מהירות (לימים עמוסים):</p>
+                            <ul class="list-none meal-list text-sm sm:text-base text-text-muted pr-0">
+                                <li><span class="text-accent-gold ml-2">>></span> משקה חלבון וקורנפלקס: סקופ חלבון מעורבב עם 200 מ"ל מים/חלב + 40 גרם קורנפלקס מלא.</li>
+                                <li><span class="text-accent-gold ml-2">>></span> מעדן וגרנולה: 1 גביע יוגורט פרו 20 גרם חלבון + 30 גרם גרנולה + בננה קטנה.</li>
+                                <li><span class="text-accent-gold ml-2">>></span> כריך גבינה/טונה: 2 פרוסות לחם מלא + 3 פרוסות גבינה צהובה 9% + ירקות (או 1/2 קופסת טונה).</li>
+                                <li><span class="text-accent-gold ml-2">>></span> טוסט גבינה צהובה 9%: 2 פרוסות לחם מלא/קל + 3 פרוסות גבנ"צ 9% + רסק עגבניות + ירקות.</li>
+                                <li><span class="text-accent-gold ml-2">>></span> שייק חלבון מלא: סקופ חלבון + כוס חלב שקדים + בננה קפואה + כף חמאת בוטנים טבעית.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Meal: Lunch -->
+                <div class="bg-secondary-bg p-4 sm:p-6 rounded-lg mb-6 shadow-md border border-soft-accent">
+                    <h4 class="text-xl sm:text-2xl font-bold text-text-dark flex items-center justify-between cursor-pointer transition duration-300 hover:text-accent-gold" onclick="toggleOptions('lunch-options')">
+                        <span><span class="text-accent-gold ml-2">&#129377;</span> ארוחת צהריים (כ-450-500 קלוריות)</span>
+                        <span id="lunch-options-toggle-icon" class="text-3xl text-accent-gold toggle-icon rotated">+</span>
+                    </h4>
+                    <div id="lunch-options" class="hidden mt-4 pt-4 border-t border-soft-accent space-y-4 overflow-hidden" style="transition: max-height 0.5s ease-out; max-height: 0;">
+                        <div class="bg-primary-bg p-4 rounded-md">
+                            <p class="font-semibold text-accent-gold mb-3">&#128171; 5 אופציות מגוונות:</p>
+                            <ul class="list-none meal-list text-sm sm:text-base text-text-dark pr-0">
+                                <li><span class="text-accent-gold ml-2">-</span> חזה עוף ובטטה: 130 גרם חזה עוף + 150 גרם בטטה אפויה + סלט ירקות גדול עם כפית שמן זית.</li>
+                                <li><span class="text-accent-gold ml-2">-</span> פילה סלמון וקינואה: 120 גרם פילה סלמון + כוס (150 גרם) קינואה מבושלת + ירקות ירוקים מאודים.</li>
+                                <li><span class="text-accent-gold ml-2">-</span> בולונז רזה: 130 גרם בקר טחון רזה ברוטב עגבניות + 100 גרם פסטה מחיטה מלאה.</li>
+                                <li><span class="text-accent-gold ml-2">-</span> מוקפץ טופו/עוף: 150 גרם טופו או 130 גרם עוף + ירקות מוקפצים + כף סויה/טריאקי לייט + 1/2 כוס אורז מלא.</li>
+                                <li><span class="text-accent-gold ml-2">-</span> סלט "ארוחה" (עוף/טונה): סלט ירקות ענק + 130 גרם חזה עוף/טונה + 1/2 כוס גרגירי חומוס + 2 כפות טחינה גולמית.</li>
+                            </ul>
+                        </div>
+                        <div class="bg-primary-bg/70 p-4 rounded-md">
+                            <p class="font-semibold text-text-dark mb-3">&#9889; אופציות מהירות (לימים עמוסים):</p>
+                            <ul class="list-none meal-list text-sm sm:text-base text-text-muted pr-0">
+                                <li><span class="text-accent-gold ml-2">>></span> טוסט 9% משודרג: 2 פרוסות לחם מלא + 3 פרוסות גבנ"צ 9% + 1/2 קופסת טונה במים.</li>
+                                <li><span class="text-accent-gold ml-2">>></span> כריך "ארוחה": בגט קטן מחיטה מלאה + 100 גרם פסטרמה/חביתה מ-2 ביצים + 1/3 אבוקדו + ירקות.</li>
+                                <li><span class="text-accent-gold ml-2">>></span> קערת קוטג'-טונה: גביע קוטג' 5% + קופסת טונה במים + ירקות חתוכים + 2-3 קרקרים משיפון.</li>
+                                <li><span class="text-accent-gold ml-2">>></span> שאריות מאתמול: (האופציה היעילה ביותר) לחמם מנה מארוחת הערב/צהריים של היום הקודם.</li>
+                                <li><span class="text-accent-gold ml-2">>></span> סלט מוכן (קנוי): סלט עם בסיס חלבון + רוטב ויניגרט בצד (כף אחת).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Meal: Dinner -->
+                <div class="bg-secondary-bg p-4 sm:p-6 rounded-lg mb-6 shadow-md border border-soft-accent">
+                    <h4 class="text-xl sm:text-2xl font-bold text-text-dark flex items-center justify-between cursor-pointer transition duration-300 hover:text-accent-gold" onclick="toggleOptions('dinner-options')">
+                        <span><span class="text-accent-gold ml-2">&#127860;</span> ארוחת ערב (כ-400-450 קלוריות)</span>
+                        <span id="dinner-options-toggle-icon" class="text-3xl text-accent-gold toggle-icon rotated">+</span>
+                    </h4>
+                    <div id="dinner-options" class="hidden mt-4 pt-4 border-t border-soft-accent space-y-4 overflow-hidden" style="transition: max-height 0.5s ease-out; max-height: 0;">
+                        <div class="bg-primary-bg p-4 rounded-md">
+                            <p class="font-semibold text-accent-gold mb-3">&#128171; 5 אופציות מגוונות:</p>
+                            <ul class="list-none meal-list text-sm sm:text-base text-text-dark pr-0">
+                                <li><span class="text-accent-gold ml-2">-</span> סלט טונה וביצה: קופסת טונה (מסוננת) + 2 ביצים קשות + סלט ירקות גדול + כפית שמן זית + 2 פרוסות לחם קל.</li>
+                                <li><span class="text-accent-gold ml-2">-</span> סלט יווני משביע: סלט ירקות קצוץ + 100 גרם גבינה בולגרית 5% + 10 זיתים + 1/3 אבוקדו + 2 פריכיות אורז מלא.</li>
+                                <li><span class="text-accent-gold ml-2">-</span> ארוחת גבינות קלה: 150 גרם קוטג' 5% + 50 גרם גבינה צפתית 5% + 2 ביצים קשות + סלט ירקות + 2 פרוסות לחם שיפון.</li>
+                                <li><span class="text-accent-gold ml-2">-</span> דג לבן וירקות: 150 גרם פילה דג לבן בתנור + ירקות אנטיפסטי + כפית שמן זית + כף טחינה.</li>
+                                <li><span class="text-accent-gold ml-2">-</span> אומלט "ספיישל": אומלט מ-2 ביצים + 30 גרם גבינה צהובה 9% מגורדת + פטריות ובצל + סלט ירקות + פרוסת לחם מלא.</li>
+                            </ul>
+                        </div>
+                        <div class="bg-primary-bg/70 p-4 rounded-md">
+                            <p class="font-semibold text-text-dark mb-3">&#9889; אופציות מהירות (לימים עמוסים):</p>
+                            <ul class="list-none meal-list text-sm sm:text-base text-text-muted pr-0">
+                                <li><span class="text-accent-gold ml-2">>></span> יוגורט וגרנולה: 1 גביע דנונה פרו 20 גרם + 30 גרם גרנולה + פרי.</li>
+                                <li><span class="text-accent-gold ml-2">>></span> טוסט גבינה צהובה 9%: 2 פרוסות לחם מלא + 3 פרוסות גבנ"צ 9% + ביצה קשה בצד + ירקות.</li>
+                                <li><span class="text-accent-gold ml-2">>></span> קורנפלקס וחלבון: 40 גרם ברנפלקס + 1 גביע יוגורט פרו 20 גרם (לערבב יחד).</li>
+                                <li><span class="text-accent-gold ml-2">>></span> קערית גבינה וקרקרים: 150 גרם גבינה לבנה 5% + 4 קרקרים משיפון מלא + ירקות.</li>
+                                <li><span class="text-accent-gold ml-2">>></span> משקה חלבון (אם האימון בערב): סקופ חלבון עם מים + בננה קטנה.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Meal: Snack/Intermediate -->
+                <div class="bg-secondary-bg p-4 sm:p-6 rounded-lg shadow-md border border-soft-accent">
+                    <h4 class="text-xl sm:text-2xl font-bold text-text-dark flex items-center justify-between cursor-pointer transition duration-300 hover:text-accent-gold" onclick="toggleOptions('snack-options')">
+                        <span><span class="text-accent-gold ml-2">&#129370;</span> ארוחת ביניים / נשנוש מבוקר (כ-150-200 קלוריות)</span>
+                        <span id="snack-options-toggle-icon" class="text-3xl text-accent-gold toggle-icon rotated">+</span>
+                    </h4>
+                    <div id="snack-options" class="hidden mt-4 pt-4 border-t border-soft-accent space-y-4 overflow-hidden" style="transition: max-height 0.5s ease-out; max-height: 0;">
+                        <p class="text-text-muted text-sm mb-4">זו ארוחה חשובה שמטרתה לנהל את החשק למתוק ולמנוע אכילה משעמום.</p>
+                        <div class="bg-primary-bg p-4 rounded-md">
+                            <p class="font-semibold text-accent-gold mb-3">&#128171; 5 אופציות מגוונות:</p>
+                            <ul class="list-none meal-list text-sm sm:text-base text-text-dark pr-0">
+                                <li><span class="text-accent-gold ml-2">-</span> פרי ואגוזים: 1 תפוח עץ/אגס + 15 שקדים טבעיים.</li>
+                                <li><span class="text-accent-gold ml-2">-</span> מעדן מתוק-מבוקר: 1 גביע יוגורט פרו בטעם + 100 גרם פירות יער.</li>
+                                <li><span class="text-accent-gold ml-2">-</span> פריכיות וחמאת בוטנים: 2 פריכיות אורז מלא + כף גדושה (15 גרם) חמאת בוטנים טבעית.</li>
+                                <li><span class="text-accent-gold ml-2">-</span> תמרים ואגוזים: 2 תמרים מג'הול + 3 חצאי אגוז מלך.</li>
+                                <li><span class="text-accent-gold ml-2">-</span> שוקולד מריר: 2 קוביות שוקולד מריר 70% + 100 גרם תותים.</li>
+                            </ul>
+                        </div>
+                        <div class="bg-primary-bg/70 p-4 rounded-md">
+                            <p class="font-semibold text-text-dark mb-3">&#9889; אופציות מהירות (ל"כאן ועכשיו"):</p>
+                            <ul class="list-none meal-list text-sm sm:text-base text-text-muted pr-0">
+                                <li><span class="text-accent-gold ml-2">>></span> מעדן חלבון: 1 גביע יוגורט/מעדן חלבון מוכן.</li>
+                                <li><span class="text-accent-gold ml-2">>></span> משקה חלבון: 1 סקופ חלבון מעורבב עם 200 מ"ל מים.</li>
+                                <li><span class="text-accent-gold ml-2">>></span> חטיף חלבון: 1 חטיף חלבון (עד 200 קלוריות, מינימום 15 גרם חלבון).</li>
+                                <li><span class="text-accent-gold ml-2">>></span> פרי: 1 בננה בינונית.</li>
+                                <li><span class="text-accent-gold ml-2">>></span> ביצה קשה: 1-2 ביצים קשות (מוכנות מראש).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section: Golden Keys -->
+            <section class="mt-12">
+                <h3 class="flex items-center text-3xl font-black text-text-dark pt-4 pb-2 border-b border-accent-gold/50 mb-8">
+                    <span class="ml-3 text-accent-gold">&#128273;</span> מפתחות הזהב שלך להצלחה
+                </h3>
+
+                <div class="space-y-6">
+                    <!-- Key 1: Water -->
+                    <div class="bg-secondary-bg p-5 rounded-lg border-l-4 border-accent-gold/70 shadow-md">
+                        <p class="text-xl font-semibold text-text-dark mb-2">שתיית מים (הדגש הקריטי)</p>
+                        <p class="text-text-muted mb-2">ציינת שאינך מקפידה על שתיית מים. זהו הרגל חובה לשינוי.</p>
+                        <ul class="list-none text-sm sm:text-base space-y-1 pr-0">
+                            <li><span class="font-semibold text-accent-gold ml-2">🎯</span> <span class="text-text-dark">היעד:</span> 2.5 ליטר מים ביום.</li>
+                            <li><span class="font-semibold text-accent-gold ml-2">💡</span> <span class="text-text-dark">הטיפ:</span> הציבי בקבוק 1.5 ליטר על השולחן. סיימי אותו עד הצהריים. מלאי עוד ליטר וסיימי עד הערב.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Key 2: Emotional Eating -->
+                    <div class="bg-secondary-bg p-5 rounded-lg border-l-4 border-accent-gold/70 shadow-md">
+                        <p class="text-xl font-semibold text-text-dark mb-2">ניהול אכילה רגשית / משעמום</p>
+                        <p class="text-text-muted mb-2">ציינת נטייה לאכול משעמום (כמו שוקו בונס).</p>
+                        <p class="text-sm sm:text-base">
+                            <span class="font-semibold text-accent-gold ml-2">🧠</span> <span class="text-text-dark">הטיפ:</span> כשעולה הדחף, שאלי: "האם אני רעבה או משועממת?". שתי כוס מים גדולה, חכי 15 דקות. אם עדיין רעבה, גשי לאחת מארוחות הביניים המתוכננות.
+                        </p>
+                    </div>
+                    
+                    <!-- Key 3: Dining Out -->
+                    <div class="bg-secondary-bg p-5 rounded-lg border-l-4 border-accent-gold/70 shadow-md">
+                        <p class="text-xl font-semibold text-text-dark mb-2">אכילה חכמה במסעדות</p>
+                        <p class="text-text-muted mb-2">את אוכלת בחוץ לעיתים קרובות. זה בסדר גמור, כל עוד בוחרים נכון.</p>
+                        <p class="text-sm sm:text-base">
+                            <span class="font-semibold text-accent-gold ml-2">🍽️</span> <span class="text-text-dark">הטיפ:</span> העדיפי חלבון בגריל (עוף, דג) עם תוספת פחמימה נקייה (אורז, בטטה) וסלט. בסלטים, בקשי תמיד את הרוטב בצד והגבילי לכף אחת.
+                        </p>
+                    </div>
+                    
+                    <!-- Key 4: Training & Back Pain -->
+                    <div class="bg-secondary-bg p-5 rounded-lg border-l-4 border-accent-gold/70 shadow-md">
+                        <p class="text-xl font-semibold text-text-dark mb-2">אימונים וכאבי גב</p>
+                        <p class="text-text-muted mb-2">כאבי הגב שציינת דורשים תשומת לב.</p>
+                        <p class="text-sm sm:text-base">
+                            <span class="font-semibold text-accent-gold ml-2">💪</span> <span class="text-text-dark">הטיפ:</span> ודאי שאימוני הכוח שלך (2-3 בשבוע) כוללים חיזוק משמעותי לשרירי הליבה, והקפידי על טכניקה נכונה עם המאמן.
+                        </p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section: Tips for Busy Life -->
+            <section class="mt-12 border-t border-soft-accent pt-8">
+                <h3 class="flex items-center text-2xl font-bold text-accent-gold mb-6">
+                    <span class="ml-2">&#128170;</span> טיפים נוספים לחיים עמוסים
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm sm:text-base">
+                    <div class="p-4 bg-primary-bg rounded-lg shadow-sm border-b-2 border-accent-gold/50">
+                        <p class="font-semibold text-text-dark mb-1">הכנה מראש (Meal Prep)</p>
+                        <p class="text-text-muted">הכיני ביום פנוי קופסאות קדימה: חזה עוף מוכן, אורז/קינואה, ירקות חתוכים. זה ה"נשק הסודי" שלך.</p>
+                    </div>
+                    <div class="p-4 bg-primary-bg rounded-lg shadow-sm border-b-2 border-accent-gold/50">
+                        <p class="font-semibold text-text-dark mb-1">נשנושים חכמים בתיק</p>
+                        <p class="text-text-muted">החזיקי תמיד בתיק אופציה מהירה ואיכותית: חטיף חלבון, שקית שקדים קטנה או תפוח. זה ימנע נפילה לחטיפים מעובדים.</p>
+                    </div>
+                    <div class="p-4 bg-primary-bg rounded-lg shadow-sm border-b-2 border-accent-gold/50">
+                        <p class="font-semibold text-text-dark mb-1">הגברת תנועה יומיומית (NEAT)</p>
+                        <p class="text-text-muted">עלי במדרגות, עשי הפסקות יזומות להליכה קצרה בין לקוחה ללקוחה או בין שיעורים. הוסיפי צעדים ביום.</p>
+                    </div>
+                    <div class="p-4 bg-primary-bg rounded-lg shadow-sm border-b-2 border-accent-gold/50">
+                        <p class="font-semibold text-text-dark mb-1">עקביות, לא מושלמות</p>
+                        <p class="text-text-muted">המטרה היא 80-90% דיוק. אם אכלת ארוחה מחוץ לתוכנית, זה בסדר גמור. הארוחה הבאה היא הזדמנות חדשה לחזור למסלול.</p>
+                    </div>
+                </div>
+            </section>
+            
+        </main>
+
+        <!-- Footer / Closing Message -->
+        <footer class="p-6 sm:p-10 border-t border-soft-accent mt-8 text-center bg-primary-bg">
+            <p class="text-2xl font-extrabold text-accent-gold mb-2 gold-emblem">R.T. - הצלחה זה הרגל.</p>
+            <p class="text-text-muted text-base">נופר, התוכנית הזו נותנת לך גם מסגרת וגם גמישות מקסימלית. אנחנו כאן לכל שאלה. בהצלחה!</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
